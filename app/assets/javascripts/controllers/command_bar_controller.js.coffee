@@ -45,29 +45,32 @@ App.CommandBarController = Ember.Controller.extend
 
   # Sends a message to our current channel
   _message: (message) ->
-    @get('_fayeClient').publish("/chatroom", message: message)
+    @get('_fayeClient').publish("/chatroom", message: message) if @get('isConnected')
 
   # Connects to our server
   _connect: (server) ->
     if !@get('isConnected') && server?
       client = new Faye.Client("http://#{server}:9292/faye")
 
-      # This is where error handling would go
-      client.subscribe("/chatroom", @_messageReceived)
-      client.subscribe('/event', @_serverEvent)
+      # We want to subscribe to chatroom and server events
+      client.subscribe("/chatroom", @_messageReceived.call(@))
+      client.subscribe('/event', @_serverEvent.bind(@))
 
       # Announce that we've just joined
       client.publish('/event', type: kJoinCommand)
 
+      # Hold on to our client for subsequent requests
       @set('_fayeClient', client)
       @set('isConnected', true)
 
   # Disconnects from our server
   _disconnect: ->
+    client = @get('_fayeClient')
+
     if @get('isConnected')
       client.publish('/event', type: kPartCommand)
+      client.disconnect()
       @set('isConnected', false)
-      @get('_fayeClient').disconnect()
 
   ###
   # Server Events
@@ -79,4 +82,11 @@ App.CommandBarController = Ember.Controller.extend
 
   # There's an event that happened (such as nickname change, joining channel, leaving, etc..)
   _serverEvent: (message) ->
+    store = @get('store')
+
+    switch message.type
+      when "join"
+        debugger
+        store.adapterForType(App.User).load(store, App.User, message.user)
+
     console.log message

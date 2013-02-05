@@ -10,7 +10,20 @@ class FayeIrcExtension
   @clients = {}
 
   def incoming(message, callback)
+
+    if message['channel'] == '/event'
+      message['data']['user'] = {}
+      message['data']['user']['id'] = message['clientId']
+      message['data']['user']['name'] = randomName
+    end
+
     callback.call(message)
+  end
+
+  private
+
+  def randomName
+    "Guest#{rand(10000)}"
   end
 
 end
