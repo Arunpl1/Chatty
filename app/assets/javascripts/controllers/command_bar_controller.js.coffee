@@ -83,10 +83,16 @@ App.CommandBarController = Ember.Controller.extend
   # There's an event that happened (such as nickname change, joining channel, leaving, etc..)
   _serverEvent: (message) ->
     store = @get('store')
+    adapter = store.adapterForType(App.User)
 
     switch message.type
+      # When a user joins our chat channel
       when "join"
-        debugger
-        store.adapterForType(App.User).load(store, App.User, message.user)
+        adapter.load(store, App.User, message.user)
+
+      # When a user parts our chat channel
+      when "part"
+        user = App.User.find(message.user.id)
+        store.unloadRecord(user)
 
     console.log message
