@@ -1,0 +1,8 @@
+<ul id='chatWindow'>
+  {{#each message in controller}}
+    <li class='message'>
+      <div class='username'>{{message.user.name}}</div>
+      <div class='body'>{{message.body}}</div>
+    </li>
+  {{/each}}
+</ul>
