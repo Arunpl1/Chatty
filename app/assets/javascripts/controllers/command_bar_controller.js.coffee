@@ -2,9 +2,12 @@
 # In theory, this would be it's own "network controller", but for demonstration sake
 # I am putting it all inside of the commandbar controller
 
+kJoinCommand = 'join'
+kPartCommand = 'part'
+
 App.CommandBarController = Ember.Controller.extend
   
-  # This is used for our connection state
+  # This is used for our connection state -- locks opening multiple connections
   isConnected: false
 
   # This is used for holding on to our websockets connector
@@ -48,20 +51,32 @@ App.CommandBarController = Ember.Controller.extend
   _connect: (server) ->
     if !@get('isConnected') && server?
       client = new Faye.Client("http://#{server}:9292/faye")
+
       # This is where error handling would go
       client.subscribe("/chatroom", @_messageReceived)
+      client.subscribe('/event', @_serverEvent)
+
+      # Announce that we've just joined
+      client.publish('/event', type: kJoinCommand)
+
       @set('_fayeClient', client)
       @set('isConnected', true)
 
   # Disconnects from our server
   _disconnect: ->
     if @get('isConnected')
+      client.publish('/event', type: kPartCommand)
       @set('isConnected', false)
       @get('_fayeClient').disconnect()
-
 
   ###
   # Server Events
   ###    
+
+  # There's a message for our chatroom 
   _messageReceived: (message) ->
+    console.log message
+
+  # There's an event that happened (such as nickname change, joining channel, leaving, etc..)
+  _serverEvent: (message) ->
     console.log message
