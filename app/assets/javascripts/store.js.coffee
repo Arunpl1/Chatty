@@ -3,9 +3,9 @@ App.Adapter = DS.RESTAdapter.extend
     return null
 
 
-App.Adapter.map App.Message, 
+App.Adapter.map 'App.Message', 
   user:
-    embedded: 'load'
+    embedded: 'always'
   body:
     key: 'message' 
 
