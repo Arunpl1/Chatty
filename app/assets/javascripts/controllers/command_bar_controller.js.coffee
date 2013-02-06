@@ -76,6 +76,7 @@ App.CommandBarController = Ember.Controller.extend
   # Sets our username
   _setNick: (name) ->
     @get('_fayeClient').publish('/event', type: kNickCommand, name: name)
+    @get('_fayeClient').publish('/chatroom', message: "omg, nick change")
 
 
   ###

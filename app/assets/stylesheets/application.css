@@ -119,6 +119,7 @@ html, body, .bodyWrap {
 
 /* line 63, ../../app/assets/stylesheets/application.css.scss */
 #chatWindow {
+  overflow: auto;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
