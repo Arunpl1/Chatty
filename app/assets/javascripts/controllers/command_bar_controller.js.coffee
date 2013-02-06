@@ -53,7 +53,7 @@ App.CommandBarController = Ember.Controller.extend
       client = new Faye.Client("http://#{server}:9292/faye")
 
       # We want to subscribe to chatroom and server events
-      client.subscribe("/chatroom", @_messageReceived.call(@))
+      client.subscribe("/chatroom", @_messageReceived.bind(@))
       client.subscribe('/event', @_serverEvent.bind(@))
 
       # Announce that we've just joined
@@ -78,6 +78,10 @@ App.CommandBarController = Ember.Controller.extend
 
   # There's a message for our chatroom 
   _messageReceived: (message) ->
+    store = @get('store')
+    adapter = store.adapterForType(App.Message)
+    adapter.load(store, App.Message, message)
+
     console.log message
 
   # There's an event that happened (such as nickname change, joining channel, leaving, etc..)
@@ -93,6 +97,26 @@ App.CommandBarController = Ember.Controller.extend
       # When a user parts our chat channel
       when "part"
         user = App.User.find(message.user.id)
-        store.unloadRecord(user)
+        user.unloadRecord() if user?
 
     console.log message
+
+  # This is used to find or load a user
+  # _findOrLoadUser: (userJson) ->
+    # App.User.find(userJson.id) 
+
+  # This is used to load a user
+  # _loadUser: (userJson) ->
+
+
+
+
+
+
+
+
+
+
+
+
+

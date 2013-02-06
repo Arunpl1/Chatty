@@ -6,16 +6,17 @@ Faye::WebSocket.load_adapter('thin')
 
 
 # For the sake of demonstration, i'm defining our faye irc server extension here
+# I will not be commenting this code because it shouldn't be used.
 class FayeIrcExtension
   @clients = {}
 
   def incoming(message, callback)
 
-    if message['channel'] == '/event'
-      message['data']['user'] = {}
-      message['data']['user']['id'] = message['clientId']
-      message['data']['user']['name'] = randomName
-    end
+  if message['data']
+    message['data']['user'] = {}
+    message['data']['user']['id'] = message['clientId']
+    message['data']['user']['name'] = randomName
+  end
 
     callback.call(message)
   end
