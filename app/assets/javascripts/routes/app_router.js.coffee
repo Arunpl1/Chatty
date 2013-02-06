@@ -4,3 +4,4 @@ App.ApplicationRoute = Em.Route.extend
 
   setupController: (controller) ->
     @controllerFor('userList').set('content', App.User.all())
+    @controllerFor('chatWindow').set('content', App.Message.all())
