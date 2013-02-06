@@ -4,6 +4,7 @@
 
 kJoinCommand = 'join'
 kPartCommand = 'part'
+kNickCommand = 'nick'
 
 App.CommandBarController = Ember.Controller.extend
   
@@ -65,12 +66,17 @@ App.CommandBarController = Ember.Controller.extend
 
   # Disconnects from our server
   _disconnect: ->
-    client = @get('_fayeClient')
+    # client = @get('_fayeClient')
 
-    if @get('isConnected')
-      client.publish('/event', type: kPartCommand)
-      client.disconnect()
-      @set('isConnected', false)
+    # if @get('isConnected')
+      # client.publish('/event', type: kPartCommand)
+      # client.disconnect()
+      # @set('isConnected', false)
+
+  # Sets our username
+  _setNick: (name) ->
+    @get('_fayeClient').publish('/event', type: kNickCommand, name: name)
+
 
   ###
   # Server Events
@@ -91,32 +97,15 @@ App.CommandBarController = Ember.Controller.extend
 
     switch message.type
       # When a user joins our chat channel
-      when "join"
+      when kJoinCommand
         adapter.load(store, App.User, message.user)
 
       # When a user parts our chat channel
-      when "part"
+      when kPartCommand
         user = App.User.find(message.user.id)
-        user.unloadRecord() if user?
+        store.unloadRecord(user) if user?
+
+      when kNickCommand
+        adapter.load(store, App.User, message.user)
 
     console.log message
-
-  # This is used to find or load a user
-  # _findOrLoadUser: (userJson) ->
-    # App.User.find(userJson.id) 
-
-  # This is used to load a user
-  # _loadUser: (userJson) ->
-
-
-
-
-
-
-
-
-
-
-
-
-
