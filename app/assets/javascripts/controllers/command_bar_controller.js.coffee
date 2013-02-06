@@ -39,8 +39,8 @@ App.CommandBarController = Ember.Controller.extend
     switch command
       when "/connect"
         @_connect(args[0])
-      when "/disconnect"
-        @_disconnect()
+      # when "/disconnect"
+      #   @_disconnect()
       when "/nick"
         @_setNick(args[0])
 
@@ -65,13 +65,13 @@ App.CommandBarController = Ember.Controller.extend
       @set('isConnected', true)
 
   # Disconnects from our server
-  _disconnect: ->
+  # _disconnect: ->
     # client = @get('_fayeClient')
 
     # if @get('isConnected')
-      # client.publish('/event', type: kPartCommand)
-      # client.disconnect()
-      # @set('isConnected', false)
+    #   client.publish('/event', type: kPartCommand)
+    #   client.disconnect()
+    #   @set('isConnected', false)
 
   # Sets our username
   _setNick: (name) ->
