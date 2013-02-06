@@ -190,14 +190,21 @@ html, body, .bodyWrap {
 }
 
 /* line 8, ../../app/assets/stylesheets/chat_window.css.scss */
-.commandBar {
+.commandBarWrapper {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ededed), color-stop(100%, #eeeeee));
+  background: -webkit-linear-gradient(#ededed, #eeeeee);
+  background: -moz-linear-gradient(#ededed, #eeeeee);
+  background: -o-linear-gradient(#ededed, #eeeeee);
+  background: linear-gradient(#ededed, #eeeeee);
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
   display: box;
+  padding:5px;
 }
 /* line 11, ../../app/assets/stylesheets/chat_window.css.scss */
-.commandBar input {
+.commandBarWrapper input {
+  border-radius:5px;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -ms-box-flex: 1;
@@ -208,7 +215,7 @@ html, body, .bodyWrap {
   outline: none;
   font-size: 12px;
   margin: 0;
-  padding: 2px;
+  padding: 5px;
 }
 
 /* line 3, ../../app/assets/stylesheets/users.css.scss */
