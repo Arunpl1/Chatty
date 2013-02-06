@@ -1,0 +1,218 @@
+
+/* line 28, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 19, ../../app/assets/stylesheets/application.css.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  font: 1em Helvetica, Arial, Sans-serif;
+}
+
+/* line 23, ../../app/assets/stylesheets/application.css.scss */
+html, body, .bodyWrap {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+/* line 31, ../../app/assets/stylesheets/application.css.scss */
+.bodyWrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+}
+
+/* line 36, ../../app/assets/stylesheets/application.css.scss */
+#appbar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #999999), color-stop(100%, #666666));
+  background: -webkit-linear-gradient(#999999, #666666);
+  background: -moz-linear-gradient(#999999, #666666);
+  background: -o-linear-gradient(#999999, #666666);
+  background: linear-gradient(#999999, #666666);
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  -ms-border-radius: 5px 5px 0px 0px;
+  -o-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  text-shadow: 1px 1px 1px #666666;
+  margin-top: 3px;
+  height: 30px;
+  border-bottom: 1px solid #666666;
+  color: #eee;
+  padding-left: 10px;
+}
+
+/* line 49, ../../app/assets/stylesheets/application.css.scss */
+#bodyOutlet {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-pack: stretch;
+  -moz-box-pack: stretch;
+  -ms-box-pack: stretch;
+  box-pack: stretch;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  background: #fefefe;
+}
+
+/* line 56, ../../app/assets/stylesheets/application.css.scss */
+#chatArea {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+}
+
+/* line 63, ../../app/assets/stylesheets/application.css.scss */
+#chatWindow {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -ms-box-pack: end;
+  box-pack: end;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -ms-box-align: stretch;
+  box-align: stretch;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  padding: 5px;
+}
+/* line 71, ../../app/assets/stylesheets/application.css.scss */
+#chatWindow .message {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 0.8em;
+  list-style-type: none;
+  margin:0;
+}
+/* line 75, ../../app/assets/stylesheets/application.css.scss */
+#chatWindow .message:nth-child(odd) {
+  background: #dfedfb;
+}
+/* line 80, ../../app/assets/stylesheets/application.css.scss */
+#chatWindow .username {
+  color: #666;
+}
+/* line 81, ../../app/assets/stylesheets/application.css.scss */
+#chatWindow .body {
+  color: #333;
+  margin-top: 5px;
+}
+
+/* line 3, ../../app/assets/stylesheets/channel_list.css.scss */
+.channelList {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ededed), color-stop(100%, #eeeeee));
+  background: -webkit-linear-gradient(#ededed, #eeeeee);
+  background: -moz-linear-gradient(#ededed, #eeeeee);
+  background: -o-linear-gradient(#ededed, #eeeeee);
+  background: linear-gradient(#ededed, #eeeeee);
+  border-right: 1px solid #dddddd;
+  width: 250px;
+  padding: 10px;
+  margin:0;
+}
+
+/* line 3, ../../app/assets/stylesheets/chat_window.css.scss */
+.chatWindow {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  overflow: auto;
+}
+
+/* line 8, ../../app/assets/stylesheets/chat_window.css.scss */
+.commandBar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+}
+/* line 11, ../../app/assets/stylesheets/chat_window.css.scss */
+.commandBar input {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  display: block;
+  border: 0px;
+  border-top: 1px solid #cccccc;
+  outline: none;
+  font-size: 12px;
+  margin: 0;
+  padding: 2px;
+}
+
+/* line 3, ../../app/assets/stylesheets/users.css.scss */
+.channelList li {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
